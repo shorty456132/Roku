@@ -1,0 +1,7 @@
+C:\Users\alaiacano\Documents\Visual Studio 2008\Projects\RokuTV\RokuTV\bin\Debug\RokuTV.dll
+C:\Users\alaiacano\Documents\Visual Studio 2008\Projects\RokuTV\RokuTV\bin\Debug\RokuTV.pdb
+C:\Users\alaiacano\Documents\Visual Studio 2008\Projects\RokuTV\RokuTV\bin\Debug\SimplSharpCustomAttributesInterface.dll
+C:\Users\alaiacano\Documents\Visual Studio 2008\Projects\RokuTV\RokuTV\bin\Debug\SimplSharpHelperInterface.dll
+C:\Users\alaiacano\Documents\Visual Studio 2008\Projects\RokuTV\RokuTV\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\alaiacano\Documents\Visual Studio 2008\Projects\RokuTV\RokuTV\obj\Debug\RokuTV.dll
+C:\Users\alaiacano\Documents\Visual Studio 2008\Projects\RokuTV\RokuTV\obj\Debug\RokuTV.pdb
