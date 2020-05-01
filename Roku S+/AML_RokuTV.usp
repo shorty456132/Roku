@@ -1,0 +1,112 @@
+/*******************************************************************************************
+  SIMPL+ Module Information
+  (Fill in comments below)
+*******************************************************************************************/
+/*
+Dealer Name:
+System Name:
+System Number:
+Programmer:
+Comments:
+*/
+
+/*******************************************************************************************
+  Compiler Directives
+  (Uncomment and declare compiler directives as needed)
+*******************************************************************************************/
+
+#DEFAULT_VOLATILE
+#ENABLE_STACK_CHECKING
+#ENABLE_TRACE
+         
+         
+#User_SimplSharp_Library "RokuTV"
+
+Digital_Input QueryApps,_skip_,HDMI1,HDMI2,HDMI3,dtv,_skip_,kpPower,kpHome,kpBack,kpUp,kpDn,kpLeft,kpRight,kpEnter;
+String_Input _skip_,RawCommand_Tx$[255];
+string_output RokuRx;
+String_Parameter IPaddress[16];
+                                                                  
+RokuControl Roku;
+           
+push QueryApps
+{
+	Roku.QueryCommand("/query/apps");
+	RokuRx = Roku.fromRoku;
+}           
+           
+push kpPower
+{
+	Roku.sendCommand("/keypress/Power");
+}
+push kpHome
+{
+	Roku.sendCommand("/keypress/Home");
+}
+
+push kpBack
+{
+	Roku.sendCommand("/keypress/Back");
+}
+push kpUp
+{
+	Roku.sendCommand("/keypress/Up");
+}
+push kpDn
+{
+	Roku.sendCommand("/keypress/Down");
+}
+push kpLeft
+{
+	Roku.sendCommand("/keypress/Left");
+}
+push kpRight
+{
+	Roku.sendCommand("/keypress/Right");
+}
+push kpEnter
+{
+	Roku.sendCommand("/keypress/Select");
+}
+
+//Inputs
+
+push HDMI1
+{
+	Roku.sendCommand("/launch/input.hdmi1");
+}
+push HDMI2
+{
+	Roku.sendCommand("/launch/input.hdmi2");
+}
+push HDMI3
+{
+	Roku.sendCommand("/launch/input.hdmi3");
+}
+push dtv
+{
+	Roku.sendCommand("/launch/input.dtv");
+}
+
+change RawCommand_Tx$
+{
+	string sTemp[1000];
+	
+	sTemp = RawCommand_Tx$;
+	
+	if((find("keypress",sTemp) > 0) || (find("launch",sTemp) > 0))
+	{
+		Roku.sendCommand(sTemp);
+	}
+	else if(find("query",sTemp) > 0)
+	{
+		Roku.QueryCommand(sTemp);
+	}
+	sTemp = "";
+}
+
+function main()
+{
+	waitforinitializationcomplete();
+	Roku.initialize(IPaddress);
+}
